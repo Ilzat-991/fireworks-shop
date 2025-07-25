@@ -1,4 +1,4 @@
-import './globals.css';
+import '../style/globals.css';
 import { Inter } from 'next/font/google';
 import { CartProvider } from '@/context/CartContext';
 import Navbar from '@/components/Navbar';
@@ -8,19 +8,21 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Fireworks Shop',
-  description: 'Лучшие салюты и пиротехника!',
+  description: 'Фейерверки от лучшего производителя!',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="ru">
-      <body className={`bg-black text-white ${inter.className}`}>
-        <CartProvider>
-          <Providers>
-            <Navbar />
+      <body className={`${inter.className}`}>
+       
+        <Providers>
+           <CartProvider>
+            <Navbar/>
             {children}
+            </CartProvider>
           </Providers>
-        </CartProvider>
+        
       </body>
     </html>
   );

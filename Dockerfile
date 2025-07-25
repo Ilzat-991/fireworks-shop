@@ -9,16 +9,18 @@ COPY package*.json ./
 RUN npm install
 
 # Копируем весь проект
-COPY . .
+COPY package*.json ./
 
 # Собираем проект (если Next.js)
-RUN npm run build
+RUN npm install  #
+
+COPY . .
 
 # Устанавливаем переменную окружения
 ENV NODE_ENV=production
 
 # Команда запуска
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
 
 # Пробрасываем порт
 EXPOSE 3000
